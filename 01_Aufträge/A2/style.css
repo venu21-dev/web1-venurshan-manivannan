@@ -1,0 +1,35 @@
+
+body{
+    
+    margin: 80px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.hint{
+    color: rgb(116, 116, 116);
+}
+
+.formular{
+    background-color: rgb(243, 243, 243);
+    border: 1.5px solid #bcbcbc;
+    padding: 20px;    
+    border-radius: 15px;
+}
+
+
+.stayLoggIn{
+    font-size: medium;
+    margin-top: 15px;
+}
+
+.loginButton{
+    background-color: rgb(0, 17, 255);
+    border-radius: 5px;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    
+    font-size: medium;
+
+}

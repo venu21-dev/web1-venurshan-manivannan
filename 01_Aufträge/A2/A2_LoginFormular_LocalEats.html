@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>Login</title>
+</head>
+
+    <link rel="stylesheet" href="/01_Aufträge/A2/style.css">
+
+<body class="formularBody">
+
+  <header>
+    <h1>LocalEats</h1>
+
+    <p class="hint">Interner Bereich - Anmeldung</p>
+
+  </header>
+  
+  <br></br>
+
+  <main>
+
+    <div>
+        
+        <h1>Login</h1>
+        <p class="hint">Melde dich im interen Bereich von LocalEats an. Felder mit * sind Pflichtfelder</p>
+
+    </div>
+
+     <br></br>
+
+    <div class="formular">
+        <form action="/submit" method="post">
+            <label for="name">Benutzername oder E-Mail *</label>
+            <input type="text" id="name" name="name" required>
+           
+            <p class="hint">Benutzername 3-32 Zeichen oder gültige E-Mail Adresse.</p>
+            
+            <label for="name">Passwort "</label>
+            <input type="text" id="name" name="name" required>
+
+            <div class="stayLoggIn">
+                <input type="checkbox" id="remember" name="remember">
+                <label for="name">Angemeldet bleiben</label>
+            </div>
+            
+            <p>
+                <button type="submit" class="loginButton">Anmelden</button>
+                <a href="/passwort-reset">Passwort vergessen?</a>
+            </p>
+
+        </form>
+    </div>
+
+  </main>
+
+  <footer>
+    <p>&copy; 2025 LocalEats - Kontakt - Impressum</p>
+  </footer>
+
+</body>
+</html>
