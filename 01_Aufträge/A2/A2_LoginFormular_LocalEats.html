@@ -7,16 +7,17 @@
 
     <link rel="stylesheet" href="/01_Aufträge/A2/style.css">
 
-<body class="formularBody">
+<body>
 
   <header>
     <h1>LocalEats</h1>
 
-    <p class="hint">Interner Bereich - Anmeldung</p>
+    <p class="hint">Interner Bereich · Anmeldung</p>
+
+    <hr>
 
   </header>
   
-  <br></br>
 
   <main>
 
@@ -27,35 +28,36 @@
 
     </div>
 
-     <br></br>
-
     <div class="formular">
         <form action="/submit" method="post">
-            <label for="name">Benutzername oder E-Mail *</label>
-            <input type="text" id="name" name="name" required>
-           
-            <p class="hint">Benutzername 3-32 Zeichen oder gültige E-Mail Adresse.</p>
             
-            <label for="name">Passwort "</label>
-            <input type="text" id="name" name="name" required>
+            <div class="formularinput">
+                <label for="name" class="fontType">Benutzername oder E-Mail *</label>
+                <input type="text" id="name" name="name"  placeholder="z.B. max@example.com" class="inputFeld" required>
+                <p class="hint">Benutzername 3-32 Zeichen oder gültige E-Mail Adresse.</p>
+                
+                <label for="name" class="fontType">Passwort *</label>
+                <input type="text" id="password" name="name" placeholder="✱✱✱✱✱✱✱✱" class="inputFeld" required>
 
-            <div class="stayLoggIn">
-                <input type="checkbox" id="remember" name="remember">
-                <label for="name">Angemeldet bleiben</label>
+                <div class="stayLoggIn">
+                    <input type="checkbox" id="remember" name="remember">
+                    <label for="name" class="fontType">Angemeldet bleiben</label>
+                </div>
             </div>
             
             <p>
                 <button type="submit" class="loginButton">Anmelden</button>
-                <a href="/passwort-reset">Passwort vergessen?</a>
+                <a href="#" class="ForgotPass">Passwort vergessen?</a>
             </p>
-
-        </form>
+     </form>
     </div>
 
   </main>
 
+  <hr>
+
   <footer>
-    <p>&copy; 2025 LocalEats - Kontakt - Impressum</p>
+    <p>&copy; 2025 LocalEats · Kontakt · Impressum</p>
   </footer>
 
 </body>

@@ -1,13 +1,42 @@
 
-body{
-    
-    margin: 80px;
+hr {
+  border: none;              
+  height: 1px;               
+  background: #ccc;         
+  margin: 20px 0;            
+}
+
+header{
     font-family: Arial, Helvetica, sans-serif;
+    margin-bottom: 80px;
+
+}
+
+main{
+    font-family: Arial, Helvetica, sans-serif;
+    margin-bottom: 80px;
+
+}
+
+body{
+    margin-left: 650px;
+    margin-right: 650px;
+
+}
+
+footer{
+    padding-top: 5px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#password{
+    opacity: 70%;
 }
 
 .hint{
     color: rgb(116, 116, 116);
 }
+
 
 .formular{
     background-color: rgb(243, 243, 243);
@@ -16,20 +45,45 @@ body{
     border-radius: 15px;
 }
 
+.formularinput {
+  display: flex;
+  flex-direction: column;
+}
 
 .stayLoggIn{
     font-size: medium;
     margin-top: 15px;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 
 .loginButton{
-    background-color: rgb(0, 17, 255);
-    border-radius: 5px;
-    padding-left: 15px;
-    padding-right: 15px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    
+    background-color: rgb(0, 64, 255);
+    border-radius: 7px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    border: 0px;
     font-size: medium;
+    font-weight: bold;
+    color: white;
+}
+
+.fontType{
+    font-weight: bold;
+}
+
+.inputFeld{
+    border-radius: 8px;
+    border: 1.5px solid #bcbcbc;
+    padding: 10px;
+    margin-top: 8px;
+}
+
+.ForgotPass{
+    margin-left: 15px;
+    text-decoration: none;
+    color: rgb(0, 64, 255);
 
 }
