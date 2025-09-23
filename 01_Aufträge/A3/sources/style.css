@@ -1,0 +1,11 @@
+
+.nav_list{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+nav{
+    background-color: #E0E0E0;
+    opacity: 42%;
+}
