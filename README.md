@@ -8,7 +8,7 @@ Die Tabelle unten zeigt den aktuellen Stand meiner Bearbeitung.
 
 | Kompetenz / Abgabe                                | Erledigt (Ja/Nein) | Selbstbewertung (0–3 Punkte) | Fremdbeurteilung (0–3 Punkte) |
 |---------------------------------------------------|--------------------|-------------------------------|-------------------------------|
-| **A1**: Intro & Grundlagen                        | Nein               | 0                             | 0                             |
+| **A1**: Intro & Grundlagen                        | Ja                 | 3                             | 0                             |
 | **A2**: Grundlagen CSS                            | Nein               | 0                             | 0                             |
 | **A3**: Moderne Layoutmodelle / Responsive Design | Nein               | 0                             | 0                             |
 | **A4**: UI/UX                                     | Nein               | 0                             | 0                             |
