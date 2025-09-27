@@ -24,6 +24,3 @@ https://www.figma.com/design/BqAfWyHIGfl4ZL5RkkVcH0/UI--UX?node-id=171-6&t=tCfjt
 - Desktop Landing (`desktop-landing.png`)
 - Desktop Detail (`desktop-detail.png`)
 - Mini-Styleguide (`styleguide/styleguide.png`)
-
-## Selbstbewertung
-**3 Punkte** - Alle Anforderungen erfüllt inkl. Mini-Styleguide mit Farbpalette, Typografie-Skala und Button-Varianten.
