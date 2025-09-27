@@ -1,7 +1,12 @@
 # LocalEats - UI/UX Mockup (Auftrag A4)
 
 ## Projektbeschreibung
-LocalEats ist eine Restaurant-Discovery App mit fokussiertem Design auf lokale Gastronomie. Das Design verwendet einen modernen Rosa-Gradient mit Mint- und Blautönen für eine warme, einladende Atmosphäre.
+LocalEats ist eine Restaurant App, das Design verwendet einen modernen Rosa-Gradient mit Mint- und Blautönen für eine warme, einladende Atmosphäre.
+
+## Figma Link
+**Freigegeben für Viewing:**
+
+https://www.figma.com/design/BqAfWyHIGfl4ZL5RkkVcH0/UI--UX?node-id=171-6&t=tCfjtPspAmicgOQh-1
 
 ## Design-Konzept
 - **Mobile-First Approach**: Responsive Design für 360×640 (Mobile) und 1440×900 (Desktop)
@@ -12,11 +17,6 @@ LocalEats ist eine Restaurant-Discovery App mit fokussiertem Design auf lokale G
 ## Screens
 - **Landing Page**: Übersicht mit Kategoriefiltern und Restaurant-Liste
 - **Detail Page**: Detailansicht mit Hero-Bild, Informationen und Bestellmöglichkeit
-
-## Figma Link
-**Freigegeben für Viewing:**
-
-https://www.figma.com/design/BqAfWyHIGfl4ZL5RkkVcH0/UI--UX?node-id=171-6&t=tCfjtPspAmicgOQh-1
 
 ## Inhalte
 - Mobile Landing (`mobile-landing.png`)
