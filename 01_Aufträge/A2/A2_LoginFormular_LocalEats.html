@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>Login</title>
+  <link rel="stylesheet" href="source/style.css">
 </head>
 
     <link rel="stylesheet" href="/01_Aufträge/A2/source/style.css">
@@ -10,12 +11,13 @@
 <body>
 
   <header>
+     <!-- Header Titel & Hint Text -->
     <h1>LocalEats</h1>
-
+    
     <p class="hint">Interner Bereich · Anmeldung</p>
 
     <hr>
-
+  
   </header>
   
 
@@ -23,8 +25,9 @@
 
     <div>
         
-        <h1>Login</h1>
-        <p class="hint">Melde dich im interen Bereich von LocalEats an. Felder mit * sind Pflichtfelder</p>
+        <!-- Header Infos & Hint Text -->
+        <h2>Login</h2>
+        <p class="hint">Melde dich im internen Bereich von LocalEats an. Felder mit * sind Pflichtfelder</p>
 
     </div>
 
@@ -32,30 +35,43 @@
         <form action="/submit" method="post">
             
             <div class="formularinput">
-                <label for="name" class="fontType">Benutzername oder E-Mail *</label>
-                <input type="text" id="name" name="name"  placeholder="z.B. max@example.com" class="inputFeld" required>
+
+                <!-- Benutzername/E-Mail Input -->
+                <label for="username" class="fontType">Benutzername oder E-Mail *</label>
+                <input type="text" id="username" name="username" 
+                      pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}|[a-zA-Z0-9_]{3,32}"
+                      title="Gültige E-Mail oder Benutzername (3-32 Zeichen)"
+                      minlength="3" maxlength="50" 
+                      placeholder="z.B. max@example.com" class="inputFeld" required>
+
                 <p class="hint">Benutzername 3-32 Zeichen oder gültige E-Mail Adresse.</p>
                 
-                <label for="name" class="fontType">Passwort *</label>
-                <input type="text" id="password" name="name" placeholder="✱✱✱✱✱✱✱✱" class="inputFeld" required>
+                <!-- Passwort Input -->
+                <label for="password" class="fontType">Passwort *</label>
+                <input type="password" id="password" name="password" 
+                      minlength="8" 
+                      placeholder="✱✱✱✱✱✱✱✱" class="inputFeld" required>
 
+                <!-- Checkbox "Angemeldet bleiben" -->
                 <div class="stayLoggIn">
                     <input type="checkbox" id="remember" name="remember">
-                    <label for="name" class="fontType">Angemeldet bleiben</label>
+                    <label for="remember" class="fontType">Angemeldet bleiben</label>
                 </div>
             </div>
             
+            <!-- Anmelde & Passwort vergessen Button -->
             <p>
                 <button type="submit" class="loginButton">Anmelden</button>
                 <a href="#" class="ForgotPass">Passwort vergessen?</a>
             </p>
-     </form>
+    </form>
     </div>
 
   </main>
 
   <hr>
 
+  <!-- Copyright Text -->
   <footer>
     <p>&copy; 2025 LocalEats · Kontakt · Impressum</p>
   </footer>
