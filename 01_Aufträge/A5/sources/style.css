@@ -1,0 +1,422 @@
+* {
+    font-family: 'Inter', Arial, Helvetica, sans-serif;
+    font-weight: 300;
+    font-size: 10px;
+    color: #333232;
+}
+
+.nav {
+    background: none;
+    opacity: 1;
+    border: 1.5px solid #F3F3F3;
+    border-radius: 30px;
+    background-color: rgba(224, 224, 224, 0.20);
+    margin-top: 20px;
+    margin-left: 30px;
+    margin-right: 30px;
+    padding: 12px; 
+}
+
+.nav_list {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: 3rem;
+    align-items: center;
+    justify-content: center;
+}
+
+.nav_item {
+    /* Styling für die einzelnen Nav-Items wenn nötig */
+}
+
+.nav_link {
+    text-decoration: none;
+    color: inherit;
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    background-image: url('/01_Aufträge/A3/sources/background_mobile.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.Hero_Logo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2rem;
+    margin-bottom: 3rem;
+}
+
+.kategorie_container {
+    margin: 2rem 0;
+    padding: 0 30px;
+}
+
+.kategorie_liste {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.kategorie_button {
+    /* kein extra styling nötig */
+}
+
+.filter-btn {
+    background-color: rgba(224, 224, 224, 0.42);
+    border: 1px solid #F3F3F3;
+    border-radius: 25px;
+    padding: 10px 14px;
+    font-family: inherit;
+    font-size: 10px;
+    color: #333232;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.filter-btn:hover {
+    background-color: rgba(224, 224, 224, 0.6);
+}
+
+.filter-btn-circle {
+    background-color: rgba(224, 224, 224, 0.42);
+    border: 1px solid #F3F3F3;
+    border-radius: 50%;
+    width: 33px;
+    height: 33px;
+    font-family: inherit;
+    color: #333232;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+}
+
+.filter-btn-circle:hover {
+    background-color: rgba(224, 224, 224, 0.6);
+}
+
+.cards-container {
+    padding-top: 5px;
+    padding-right: 20px;
+    padding-left: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.restaurant-card {
+    background-color: rgba(224, 224, 224, 0.25);
+    border: 2px solid #F3F3F3;
+    border-radius: 30px;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+/* Featured Card: Bild links, Text rechts */
+.featured-card {
+    background-color: rgba(255, 255, 255, 0.25);
+    flex-direction: row;
+    align-items: center;
+}
+
+.featured-card .card-image {
+    flex: 0 0 45%;
+    margin-right: 1rem;
+    overflow: hidden;
+}
+
+.featured-card .card-image img {
+    width: 100%;
+    height: 140px;
+    object-fit: cover;
+}
+
+.featured-card .card-content {
+    flex: 1;
+}
+
+/* Normale Card: Text links, Bild rechts */
+.restaurant-card:not(.featured-card) {
+    flex-direction: row;
+    align-items: center;
+}
+
+.restaurant-card:not(.featured-card) .card-content {
+    flex: 1;
+    margin-right: 1rem;
+    text-align: right;
+}
+
+.restaurant-card:not(.featured-card) .card-image {
+    flex: 0 0 45%;
+}
+
+.restaurant-card:not(.featured-card) .card-image img {
+    width: 100%;
+    height: 120px;
+    object-fit: cover;
+}
+
+.card-image {
+    position: relative;
+}
+
+.card-image img {
+    border-radius: 15px;
+}
+
+.rating-badge {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    background-color: rgba(217, 217, 217, 0.1);
+    backdrop-filter: blur(2.5px);
+    -webkit-backdrop-filter: blur(2.5px);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 15px;
+    font-size: 12px;
+    border: 1px solid #F3F3F3;
+}
+
+.card-content p {
+    margin: 0;
+    font-size: 8px;
+    line-height: 1.4;
+    max-height: none;
+    overflow: visible;
+}
+
+.restaurant-card:not(.featured-card) .card-content p {
+    margin: 0;
+    font-size: 8px;
+    line-height: 1.4;
+    text-align: right;
+}
+
+/* Small Cards Grid */
+.small-cards-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-top: 1rem;
+    margin-bottom: 20px;
+}
+
+.small-card {
+    background-color: rgba(255, 255, 255, 0.35);
+    border: 2px solid #F3F3F3;
+    border-radius: 20px;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+.small-card-image {
+    position: relative;
+    width: calc(100% - 2rem);
+    height: 80px;
+    overflow: hidden;
+    border-radius: 15px 15px 0 0;
+    margin: 1rem 1rem 0 1rem;
+}
+
+.small-card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.small-card-bottom {
+    background-color: transparent;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border-radius: 0 0 15px 15px;
+    margin-top: -5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 60px;
+    padding: 0 1rem;
+}
+
+.small-card-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.2rem;
+    background: none;
+    flex: 1;
+}
+
+.small-rating-badge {
+    background-color: rgba(217, 217, 217, 0.4);
+    backdrop-filter: blur(2.5px);
+    -webkit-backdrop-filter: blur(2.5px);
+    color: #4D4C4C;
+    padding: 3px 3px;
+    border-radius: 50%;
+    font-size: 8px;
+    border: 1px solid #F3F3F3;
+    margin-right: 0.5rem;
+    width: 25px;
+    height: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.small-card h3 {
+    margin: 0;
+    font-size: 8px;
+    font-weight: 300;
+    color: #333232;
+    text-align: left;
+    line-height: 1.2;
+}
+
+/* TABLET BREAKPOINT (768px) */
+@media (min-width: 768px) {
+    body {
+        background-image: url('/01_Aufträge/A3/sources/background_desktop.jpg');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+    }
+    
+    .nav {
+        margin-left: auto;
+        margin-right: auto;
+        width: 300px;
+        max-width: 90%;
+    }
+    
+    .nav_list {
+        gap: 2.5rem;
+    }
+    
+    .cards-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        gap: 2rem;
+        padding: 2rem 150px;
+    }
+    
+    .restaurant-card {
+        grid-column: span 1;
+    }
+    
+    .small-cards-grid {
+        grid-column: 1 / -1;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 1.5rem;
+    }
+    
+    .kategorie_container {
+        padding: 0 50px;
+    }
+    
+    .card-content p {
+        font-size: 12px;
+        line-height: 1.5;
+    }
+    
+    .restaurant-card:not(.featured-card) .card-content p {
+        font-size: 12px;
+        line-height: 1.5;
+    }
+    
+    .small-card h3 {
+        font-size: 11px;
+    }
+}
+
+/* DESKTOP BREAKPOINT (1100px) */
+@media (min-width: 1100px) {
+    body {
+        background-image: url('/01_Aufträge/A3/sources/background_desktop.jpg');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+    }
+    
+    .nav {
+        margin-left: auto;
+        margin-right: auto;
+        width: 350px;
+        max-width: 90%;
+    }
+    
+    .nav_list {
+        gap: 3.5rem;
+    }
+    
+    .cards-container {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+        padding: 2rem 250px;
+    }
+    
+    .restaurant-card {
+        grid-column: span 1;
+    }
+    
+    .featured-card {
+        grid-column: span 2;
+    }
+    
+    .restaurant-card:not(.featured-card) {
+        grid-column: span 2;
+    }
+    
+    .small-cards-grid {
+        grid-column: span 2;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+    }
+    
+    .kategorie_container {
+        padding: 0 250px;
+    }
+    
+    .card-content p {
+        font-size: 14px;
+        line-height: 1.6;
+    }
+    
+    .restaurant-card:not(.featured-card) .card-content p {
+        font-size: 14px;
+        line-height: 1.6;
+    }
+    
+    .small-card h3 {
+        font-size: 13px;
+    }
+}
