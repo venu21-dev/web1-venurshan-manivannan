@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LocalEats - Restaurant Finder</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>LocalEats</h1>
+            <div class="header-info">
+                <span id="favoriteCount">Favoriten: 0</span>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Suchfeld und Sortierung -->
+        <section class="controls">
+            <div class="search-container">
+                <input 
+                    type="search" 
+                    id="searchInput" 
+                    placeholder="Suche nach Namen..."
+                    aria-label="Restaurant suchen"
+                >
+            </div>
+            <button id="sortButton" class="sort-btn" aria-label="Nach Bewertung sortieren">
+                Bewertung ▼
+            </button>
+        </section>
+
+        <!-- Filter Section -->
+        <section class="filter-section">
+            <nav aria-label="Restaurant-Kategorien">
+                <div class="category-buttons" id="categoryButtons">
+                    <!-- Buttons werden dynamisch eingefügt -->
+                </div>
+            </nav>
+            <div class="results-info">
+                <span id="resultCount" aria-live="polite">Treffer: 0</span>
+            </div>
+        </section>
+
+        <!-- Restaurant Grid -->
+        <section class="restaurant-grid" id="restaurantGrid">
+            <!-- Restaurant-Karten werden hier dynamisch eingefügt -->
+        </section>
+
+        <!-- No Results -->
+        <div id="noResults" class="no-results" hidden>
+            <p>Keine Restaurants gefunden. Versuche einen anderen Filter oder Suchbegriff.</p>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 LocalEats</p>
+    </footer>
+
+    <!-- Module Script -->
+    <script type="module" src="src/main.js"></script>
+</body>
+</html>
