@@ -1,0 +1,66 @@
+[
+    {
+        "id": 1,
+        "name": "Trattoria Roma",
+        "cuisine": "Italienisch",
+        "price": "€€",
+        "rating": 4.7,
+        "image": "images/Trattoria Roma.jpg"
+    },
+    {
+        "id": 2,
+        "name": "Sakura",
+        "cuisine": "Asiatisch",
+        "price": "€€",
+        "rating": 4.5,
+        "image": "images/Sakura.jpg"
+    },
+    {
+        "id": 3,
+        "name": "Green Leaf",
+        "cuisine": "Vegan",
+        "price": "€€",
+        "rating": 4.6,
+        "image": "images/Green Leaf.jpg"
+    },
+    {
+        "id": 4,
+        "name": "Burger Barn",
+        "cuisine": "Amerikanisch",
+        "price": "€",
+        "rating": 4.3,
+        "image": "images/Burger Barn.jpg"
+    },
+    {
+        "id": 5,
+        "name": "La Bodega",
+        "cuisine": "Mediterran",
+        "price": "€€",
+        "rating": 4.4,
+        "image": "images/La Bodega.jpg"
+    },
+    {
+        "id": 6,
+        "name": "Saigon Kitchen",
+        "cuisine": "Vietnamesisch",
+        "price": "€",
+        "rating": 4.5,
+        "image": "images/Saigon Kitchen.jpg"
+    },
+    {
+        "id": 7,
+        "name": "Maison Douce",
+        "cuisine": "Französisch",
+        "price": "€€€",
+        "rating": 4.8,
+        "image": "images/Maison Douce.jpg"
+    },
+    {
+        "id": 8,
+        "name": "El Toro Loco",
+        "cuisine": "Mexikanisch",
+        "price": "€€",
+        "rating": 4.6,
+        "image": "images/El Toro Loco.jpg"
+    }
+]
