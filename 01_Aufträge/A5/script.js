@@ -233,9 +233,9 @@ function runTests() {
     const test1Passed = test1Result.length === restaurants.length;
     
     if (test1Passed) {
-        console.log("✓ Test 1 bestanden: Filter 'Alle' gibt alle Restaurants zurück");
+        console.log("Test 1 bestanden: Filter 'Alle' gibt alle Restaurants zurück");
     } else {
-        console.log("✗ Test 1 fehlgeschlagen");
+        console.log("Test 1 fehlgeschlagen");
         allTestsPassed = false;
     }
     

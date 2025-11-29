@@ -2,7 +2,7 @@
 // MAIN - Haupteinstieg und Koordination
 // ========================================
 
-// ES6+ Module Imports (Named Imports)
+// ES6+ Module Imports
 import { loadData, getCategories } from './data.js';
 import { filterByCuisine, searchByName, sortByRating } from './logic.js';
 import { 
@@ -159,9 +159,9 @@ const init = async () => {
         // Event Listeners
         setupEventListeners();
         
-        console.log('✅ App erfolgreich initialisiert');
+        console.log('App erfolgreich initialisiert');
     } catch (error) {
-        console.error('❌ Fehler beim Initialisieren:', error);
+        console.error('Fehler beim Initialisieren:', error);
     }
 };
 

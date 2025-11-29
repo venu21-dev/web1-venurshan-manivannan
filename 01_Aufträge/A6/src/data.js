@@ -70,7 +70,15 @@ const restaurants = [
         price: "€€",
         rating: 4.6,
         image: "images/El Toro Loco.jpg"
-    }
+    },
+    {
+    id: 9,
+    name: "Curry Palace",
+    cuisine: "Indisch",
+    price: "€€",
+    rating: 4.7,
+    image: "images/curry.jpg"
+}
 ];
 
 /**

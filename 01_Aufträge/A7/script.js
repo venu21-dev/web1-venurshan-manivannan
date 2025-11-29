@@ -17,18 +17,19 @@ const CACHE_TIMESTAMP_KEY = 'localeats_cache_timestamp';
  * Fetch mit Timeout und AbortController
  * @param {string} url - URL zum Laden
  * @param {number} timeout - Timeout in Millisekunden (default: 5000)
- * @param {AbortSignal} signal - Optional: Externes AbortSignal
  * @returns {Promise} - Response
  * 
  * ES6+ Features: Arrow Function, Default Parameters, Promise
+ * 
+ * FIX: Timeout funktioniert jetzt korrekt - verwendet internen Controller
  */
-const fetchWithTimeout = async (url, timeout = 5000, signal = null) => {
+const fetchWithTimeout = async (url, timeout = 5000) => {
     const controller = new AbortController();
     const timeoutId = setTimeout(() => controller.abort(), timeout);
     
     try {
         const response = await fetch(url, {
-            signal: signal || controller.signal
+            signal: controller.signal
         });
         clearTimeout(timeoutId);
         
@@ -107,14 +108,23 @@ const loadInitialData = async (useCache = true) => {
     }
     
     try {
-        // Neuer AbortController für diesen Request
+        // Neuer AbortController für manuellen Abbruch
         state.currentAbortController = new AbortController();
         
-        // Parallel laden mit Promise.all
-        const [restaurants, stats] = await Promise.all([
-            fetchWithTimeout('data/restaurants.json', 5000, state.currentAbortController.signal),
-            fetchWithTimeout('data/stats.json', 5000, state.currentAbortController.signal)
+        // Promise.race um Abbruch zu ermöglichen
+        const loadPromise = Promise.all([
+            fetchWithTimeout('data/restaurants.json', 5000),
+            fetchWithTimeout('data/stats.json', 5000)
         ]);
+        
+        // Auf Abbruch oder Completion warten
+        const abortPromise = new Promise((_, reject) => {
+            state.currentAbortController.signal.addEventListener('abort', () => {
+                reject(new Error('Laden wurde abgebrochen'));
+            });
+        });
+        
+        const [restaurants, stats] = await Promise.race([loadPromise, abortPromise]);
         
         // Daten aktualisieren
         state.restaurants = restaurants;
@@ -139,6 +149,7 @@ const loadInitialData = async (useCache = true) => {
             showErrorState(error.message);
         }
         
+        hideLoadingState();
         throw error;
     }
 };
@@ -164,12 +175,17 @@ const loadReviews = async (restaurantId) => {
         const controller = new AbortController();
         state.reviewAbortControllers[restaurantId] = controller;
         
+        // Promise für Abbruch
+        const loadPromise = fetchWithTimeout('data/reviews.json', 3000);
+        
+        const abortPromise = new Promise((_, reject) => {
+            controller.signal.addEventListener('abort', () => {
+                reject(new Error('AbortError'));
+            });
+        });
+        
         // Alle Reviews laden
-        const allReviews = await fetchWithTimeout(
-            'data/reviews.json',
-            3000,
-            controller.signal
-        );
+        const allReviews = await Promise.race([loadPromise, abortPromise]);
         
         // Nach restaurantId filtern
         const restaurantReviews = allReviews.filter(
@@ -188,7 +204,7 @@ const loadReviews = async (restaurantId) => {
         // Controller aufräumen
         delete state.reviewAbortControllers[restaurantId];
         
-        if (error.name === 'AbortError') {
+        if (error.message === 'AbortError') {
             console.log('Review-Request abgebrochen für Restaurant', restaurantId);
             return null;
         }
@@ -202,11 +218,13 @@ const loadReviews = async (restaurantId) => {
 
 const showLoadingState = () => {
     document.getElementById('loadingState').hidden = false;
+    document.getElementById('cancelLoadButton').hidden = false;
     document.getElementById('restaurantGrid').setAttribute('aria-busy', 'true');
 };
 
 const hideLoadingState = () => {
     document.getElementById('loadingState').hidden = true;
+    document.getElementById('cancelLoadButton').hidden = true;
     document.getElementById('restaurantGrid').setAttribute('aria-busy', 'false');
 };
 
@@ -374,30 +392,52 @@ const handleReviewToggle = async (event) => {
     }
 };
 
-/* Handler für Retry-Button*/
+/**
+ * Handler für Retry-Button
+ */
 const handleRetry = () => {
     hideErrorState();
     loadInitialData(false); // Cache nicht verwenden beim Retry
 };
 
+/**
+ * Handler für Cancel-Button (Laden abbrechen)
+ */
+const handleCancelLoad = () => {
+    if (state.currentAbortController) {
+        state.currentAbortController.abort();
+        console.log('Laden wurde manuell abgebrochen');
+    }
+};
+
+/**
+ * Initialisierung der App
+ */
 const init = async () => {
     try {
-        // Retry Button
+        // Event Listeners
         document.getElementById('retryButton')?.addEventListener('click', handleRetry);
+        document.getElementById('cancelLoadButton')?.addEventListener('click', handleCancelLoad);
         
         // Initial laden (mit SWR-Cache)
         await loadInitialData(true);
         
-        console.log('✅ App erfolgreich initialisiert');
+        console.log('App erfolgreich initialisiert');
     } catch (error) {
-        console.error('❌ Initialisierung fehlgeschlagen:', error);
+        console.error('Initialisierung fehlgeschlagen:', error);
     }
 };
 
 // App starten
 document.addEventListener('DOMContentLoaded', init);
 
-//TESTS
+// ========================================
+// TESTS
+// ========================================
+
+/**
+ * Testet fetchWithTimeout Funktion
+ */
 const testFetchWithTimeout = async () => {
     console.log('=== TEST 1: fetchWithTimeout ===');
     
@@ -419,7 +459,9 @@ const testFetchWithTimeout = async () => {
     }
 };
 
-/* Testet Cache-Logik*/
+/**
+ * Testet Cache-Logik
+ */
 const testCacheLogic = () => {
     console.log('=== TEST 2: Cache-Logik ===');
     
@@ -450,7 +492,9 @@ const testCacheLogic = () => {
     return passed;
 };
 
-/* Führt alle Tests aus*/
+/**
+ * Führt alle Tests aus
+ */
 const runTests = async () => {
     console.log('\n=== TESTS STARTEN ===\n');
     

@@ -58,9 +58,38 @@ h1 {
     color: var(--text-primary);
 }
 
+.header-controls {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
 .header-info {
     font-size: 0.9rem;
     color: var(--text-secondary);
+}
+
+/* Cancel Button */
+.cancel-btn {
+    padding: 0.5rem 1rem;
+    background-color: var(--accent-primary);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    white-space: nowrap;
+}
+
+.cancel-btn:hover {
+    background-color: var(--accent-hover);
+}
+
+.cancel-btn:focus {
+    outline: 2px solid var(--accent-primary);
+    outline-offset: 2px;
 }
 
 /* Main Content */
@@ -309,6 +338,12 @@ footer {
     
     h1 {
         font-size: 1.5rem;
+    }
+    
+    .header-controls {
+        flex-direction: column;
+        align-items: flex-end;
+        gap: 0.5rem;
     }
 }
 
