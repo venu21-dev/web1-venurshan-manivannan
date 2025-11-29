@@ -94,17 +94,23 @@ const hasCachedData = () => {
  * Lädt Restaurants und Stats parallel
  * @param {boolean} useCache - Soll Cache verwendet werden?
  * @returns {Promise<Object>} - {restaurants, stats}
+ * 
+ * SWR (Stale-While-Revalidate):
+ * - Falls Cache vorhanden: Sofort anzeigen OHNE Loading-State
+ * - Dann im Hintergrund neue Daten laden und aktualisieren
  */
 const loadInitialData = async (useCache = true) => {
-    // Zeige Ladezustand
-    showLoadingState();
+    const hasCache = useCache && hasCachedData();
     
-    // Falls Cache vorhanden, sofort anzeigen (SWR)
-    if (useCache && hasCachedData()) {
+    // Falls Cache vorhanden: Sofort anzeigen (SWR - Stale)
+    if (hasCache) {
         const cachedRestaurants = loadFromCache();
         state.restaurants = cachedRestaurants;
         renderRestaurants(cachedRestaurants);
-        hideLoadingState();
+        console.log('Cache geladen - Daten werden im Hintergrund aktualisiert...');
+    } else {
+        // Kein Cache: Zeige Loading-State
+        showLoadingState();
     }
     
     try {
@@ -133,11 +139,15 @@ const loadInitialData = async (useCache = true) => {
         // In Cache speichern (SWR)
         saveToCache(restaurants);
         
-        // UI aktualisieren
+        // UI aktualisieren (SWR - Revalidate)
         renderRestaurants(restaurants);
         updateStatsInfo(stats);
         hideLoadingState();
         hideErrorState();
+        
+        if (hasCache) {
+            console.log('✅ Hintergrund-Update abgeschlossen');
+        }
         
         return { restaurants, stats };
         
@@ -145,8 +155,11 @@ const loadInitialData = async (useCache = true) => {
         console.error('Fehler beim Laden:', error);
         
         // Falls kein Cache vorhanden, zeige Fehler
-        if (!hasCachedData() || !useCache) {
+        if (!hasCache) {
             showErrorState(error.message);
+        } else {
+            // Mit Cache: Stille Fehlerbehandlung
+            console.warn('⚠️ Hintergrund-Update fehlgeschlagen, zeige gecachte Daten');
         }
         
         hideLoadingState();
