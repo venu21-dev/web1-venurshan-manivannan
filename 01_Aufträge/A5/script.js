@@ -6,7 +6,7 @@ const restaurants = [
         cuisine: "Italienisch",
         priceLevel: "€€",
         rating: 4.7,
-        image: "images/small_menu1.png"  // Tausche mit deinem eigenen Bild aus
+        image: "images/small_menu1.png" 
     },
     {
         id: 2,
@@ -14,7 +14,7 @@ const restaurants = [
         cuisine: "Asiatisch",
         priceLevel: "€€",
         rating: 4.5,
-        image: "images/small_menu1.png"  // Tausche mit deinem eigenen Bild aus
+        image: "images/small_menu1.png" 
     },
     {
         id: 3,
@@ -22,7 +22,7 @@ const restaurants = [
         cuisine: "Vegan",
         priceLevel: "€€",
         rating: 4.6,
-        image: "images/small_menu1.png"  // Tausche mit deinem eigenen Bild aus
+        image: "images/small_menu1.png" 
     },
     {
         id: 4,
@@ -30,7 +30,7 @@ const restaurants = [
         cuisine: "Amerikanisch",
         priceLevel: "€",
         rating: 4.3,
-        image: "images/small_menu1.png"   // Tausche mit deinem eigenen Bild aus
+        image: "images/small_menu1.png" 
     },
     {
         id: 5,
@@ -38,7 +38,7 @@ const restaurants = [
         cuisine: "Mediterran",
         priceLevel: "€€",
         rating: 4.4,
-        image: "images/small_menu1.png"   // Tausche mit deinem eigenen Bild aus
+        image: "images/small_menu1.png" 
     },
     {
         id: 6,
@@ -46,7 +46,7 @@ const restaurants = [
         cuisine: "Vietnamesisch",
         priceLevel: "€",
         rating: 4.5,
-        image: "images/small_menu1.png"   // Tausche mit deinem eigenen Bild aus
+        image: "images/small_menu1.png" 
     },
     {
         id: 7,
@@ -54,11 +54,11 @@ const restaurants = [
         cuisine: "Französisch",
         priceLevel: "€€€",
         rating: 4.8,
-        image: "images/small_menu1.png"  // Tausche mit deinem eigenen Bild aus
+        image: "images/small_menu1.png"  
     }
 ];
 
-// Kategorien für Filter (werden aus den Daten extrahiert)
+// Kategorien für Filter
 const categories = ["Alle", ...new Set(restaurants.map(r => r.cuisine))];
 
 // Aktueller Filter-Status
@@ -68,7 +68,7 @@ let currentFilter = "Alle";
 let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
 
 
-// LOGIK: Filterfunktion (reine Datenlogik)
+// LOGIK: Filterfunktion
 
 /**
  * Filtert Restaurants nach Kategorie
@@ -144,9 +144,7 @@ function createRestaurantCard(restaurant) {
     `;
 }
 
-/**
- * Rendert die gefilterten Restaurants
- */
+/*Rendert die gefilterten Restaurants*/
 function renderRestaurants() {
     const filteredData = filterRestaurants(restaurants, currentFilter);
     const container = document.getElementById('restaurantGrid');
@@ -171,9 +169,7 @@ function renderRestaurants() {
     attachFavoriteListeners();
 }
 
-/**
- * Fügt Event Listener zu allen Favoriten-Buttons hinzu
- */
+/*Fügt Event Listener zu allen Favoriten-Buttons hinzu*/
 function attachFavoriteListeners() {
     const favoriteButtons = document.querySelectorAll('.favorite-btn');
     favoriteButtons.forEach(button => {
@@ -209,9 +205,7 @@ function toggleFavorite(restaurantId) {
     renderRestaurants();
 }
 
-/**
- * Aktualisiert die Favoriten-Anzeige im Header
- */
+/*Aktualisiert die Favoriten-Anzeige im Header*/
 function updateFavoriteCount() {
     const countEl = document.getElementById('favoriteCount');
     countEl.textContent = `Favoriten: ${favorites.length}`;
@@ -228,7 +222,7 @@ function initApp() {
 // App starten wenn DOM geladen ist
 document.addEventListener('DOMContentLoaded', initApp);
 
-// MINI-TESTS (reine Datenlogik-Tests)
+// MINI-TESTS
 function runTests() {
     console.log("=== MINI-TESTS STARTEN ===");
     
@@ -252,18 +246,18 @@ function runTests() {
                         test2Result[0].name === "Trattoria Roma";
     
     if (test2Passed) {
-        console.log("✓ Test 2 bestanden: Filter 'Italienisch' funktioniert korrekt");
+        console.log("Test 2 bestanden: Filter 'Italienisch' funktioniert korrekt");
     } else {
-        console.log("✗ Test 2 fehlgeschlagen");
+        console.log("Test 2 fehlgeschlagen");
         allTestsPassed = false;
     }
     
     // Gesamtergebnis
     console.log("===================");
     if (allTestsPassed) {
-        console.log("✓✓✓ ALLE TESTS BESTANDEN ✓✓✓");
+        console.log("ALLE TESTS BESTANDEN");
     } else {
-        console.log("✗ EINIGE TESTS FEHLGESCHLAGEN");
+        console.log("EINIGE TESTS FEHLGESCHLAGEN");
     }
     console.log("===================");
 }
